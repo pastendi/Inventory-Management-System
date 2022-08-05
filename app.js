@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const connectDb = require('./DB/connectDb')
+const productRouter = require('./routes/productRoute')
 require('dotenv').config() //allows us to reach to the variable in .env file
 
 //middlewares
@@ -8,6 +9,8 @@ require('dotenv').config() //allows us to reach to the variable in .env file
 app.get('/', (req, res) => {
   res.send('<h1>The server is working fine</h1>')
 })
+
+app.use('/api/products', productRouter)
 
 //port for server
 const port = process.env.PORT || 3000
