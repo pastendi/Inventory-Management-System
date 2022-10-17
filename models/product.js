@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { PRODUCT_CATEGORY } = require('../enum')
 const productSchema = new mongoose.Schema(
   {
     productName: {
@@ -18,7 +17,7 @@ const productSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: PRODUCT_CATEGORY, // only value in this array can be used in dropdown body while filter and this is global variable thus is all capital and it is imported from the -->enum<-- folder
+      enum: ['food', 'electronic', 'jewelery', 'clothes', 'utensils'],
     },
     stock: {
       type: Number,
@@ -27,6 +26,6 @@ const productSchema = new mongoose.Schema(
       type: Number,
     },
   },
-  { timestamps: true } //gives us createdAt and updatedAt automatically
+  { timestamps: true }
 )
 module.exports = mongoose.model('Product', productSchema)
