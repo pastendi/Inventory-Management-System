@@ -1,6 +1,6 @@
-import User from '../models/User.js'
-import { StatusCodes } from 'http-status-codes'
-import { BadRequestError, UnAuthenticatedError } from '../errors/index.js'
+const User = require('../models/User')
+const { StatusCodes } = require('http-status-codes')
+const { BadRequestError, UnAuthenticatedError } = require('../errors')
 
 const register = async (req, res) => {
   const { firstName, lastName, email, password } = req.body
@@ -62,4 +62,4 @@ const updateUser = async (req, res) => {
   res.status(StatusCodes.OK).json({ user, token, location: user.location })
 }
 
-export { register, login, updateUser }
+module.exports = { register, login, updateUser }

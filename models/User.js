@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
-import validator from 'validator'
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+const mongoose = require('mongoose')
+const validator = require('validator')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const UserSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -50,4 +50,4 @@ UserSchema.methods.comparePassword = async function (candidatePassword) {
   return isMatch
 }
 
-export default mongoose.model('User', UserSchema)
+module.exports = mongoose.model('User', UserSchema)

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const productSchema = new mongoose.Schema(
   {
-    productName: {
+    name: {
       type: String,
       maxlength: [50, 'Product name cannot be more that 50 characters'],
     },
@@ -18,12 +18,6 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       enum: ['food', 'electronic', 'jewelery', 'clothes', 'utensils'],
-    },
-    stock: {
-      type: Number,
-    },
-    saleCount: {
-      type: Number,
     },
   },
   { timestamps: true }
