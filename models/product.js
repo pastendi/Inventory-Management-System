@@ -8,16 +8,13 @@ const productSchema = new mongoose.Schema(
     price: {
       type: Number,
     },
-    image: {
-      type: String,
-    },
     detail: {
       type: String,
       maxlength: [500, 'Product detail cannot be more that 500 characters'],
     },
     category: {
       type: String,
-      enum: ['food', 'electronic', 'jewelery', 'clothes', 'utensils'],
+      enum: ['food', 'electronic', 'jewelry', 'clothes', 'utensils', 'sport'],
     },
   },
   { timestamps: true }
